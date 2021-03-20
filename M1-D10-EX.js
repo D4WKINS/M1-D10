@@ -103,8 +103,10 @@
        // 32) Get every "td" from the page 
 
        let tableData = document.getElementsByTagName('td')
-
+       
        // 33) Create a cycle that prints the text inside every td of the page
+
+       tableData.forEach(td => console.log(td.innerText))
 
        // 34) Write a function to change the heading of the page
 
