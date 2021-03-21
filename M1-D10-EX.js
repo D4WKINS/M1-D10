@@ -98,7 +98,7 @@
 
        // 31) Get element with ID "container" from the page 
 
-       let getContainer = document.getElementById('container')
+       let getContainer = document.getElementById('container');
 
        // 32) Get every "td" from the page 
 
@@ -106,27 +106,107 @@
        
        // 33) Create a cycle that prints the text inside every td of the page
 
-       tableData.forEach(td => console.log(td.innerText))
+       for(let i = 0; i <tableData.length; i++){
+            console.log(tableData[i].innerText)
+       }
 
        // 34) Write a function to change the heading of the page
 
+       const changeHeading = function(){
+         let heading = document.getElementsByTagName('h1')[0]
+
+         setTimeout(() => {
+            heading.innerText = "MEME TOWN"
+         }, 3000);
+       }
+       changeHeading()
+
        // 35) Write a function to add an extra row to the table
+
+       const addRow = function(){
+         let tr = document.createElement('tr')
+         let table = document.getElementsByTagName('table')[0]
+         tr.innerHTML = `<h1>YEEE BOI</h1>`
+         table.appendChild(tr)
+       }
+         addRow()
 
        // 36) Write a function to add the class "test" to each row in the table
 
+       const addClass = function(){
+         let tr = document.getElementsByTagName('tr')
+            
+         for(let i= 0; i <tr.length; i++){
+               tr[i].classList.add('test')
+         }
+       }
+         addClass()
+      
+
        // 37) Write a function to add a red background to every link in the page
+
+       const redBgLinks = function(){
+
+         let a = document.getElementsByTagName('a')
+            for(let i = 0; i < a.length; i++){
+                  a[i].style.backgroundColor = "red"
+            }
+       }
+       redBgLinks()
 
        // 38) Console log "Page loaded" when the page is correctly loaded
 
+       window.addEventListener('load',() =>{
+         console.log("Page Loaded")
+       })
+
        // 39) Write a function to add new items to a UL
 
+       const addItemUl = function(){
+
+            let ul = document.querySelector('#container ul')
+            let li = document.createElement('li')
+            ul.appendChild(li)
+       }
+       addItemUl()
+
        // 40) Write a function to empty a list
+
+       const emptyList = function(){
+
+            let list = document.querySelectorAll('ol li')
+                  for(let i = 0; i< list.length; i++){
+                        list[i].innerText = ""
+                  }
+       }
+       emptyList()
 
        // EXTRA 
 
        // 41) Add an eventListener to alert when the mouse is over a link, displaying the URL
 
+       let link = document.getElementsByTagName('a')
+       for(let i = 0; i < link.length; i++){
+       link[i].addEventListener('mouseover',(event)=>{
+               alert(event.target.href)
+       })
+      }
        // 42) Add a button to hide every image on the page
+
+      const hideBtn = function(){
+         let header = document.querySelector('header') 
+         let btn = document.createElement('Button')
+         let img =  document.getElementsByTagName('img')
+         btn.innerText ="Hide"
+         header.appendChild(btn)
+         for(let i = 0; i<img.length; i++){
+         btn.addEventListener("click",() =>{
+            img[i].style.visibility = "hidden"
+         })
+      }
+   } 
+      hideBtn()
+
 
        // 43) Add a button to hide and show the table from the page
 
