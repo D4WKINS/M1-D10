@@ -193,11 +193,11 @@
       }
        // 42) Add a button to hide every image on the page
 
-      const hideBtn = function(){
+      const hideImgBtn = function(){
          let header = document.querySelector('header') 
          let btn = document.createElement('Button')
          let img =  document.getElementsByTagName('img')
-         btn.innerText ="Hide"
+         btn.innerText ="Hide Images"
          header.appendChild(btn)
          for(let i = 0; i<img.length; i++){
          btn.addEventListener("click",() =>{
@@ -205,12 +205,40 @@
          })
       }
    } 
-      hideBtn()
+      hideImgBtn()
 
 
        // 43) Add a button to hide and show the table from the page
 
+      const tableDisplayBtn = function(){
+         let header = document.querySelector('header') 
+         let hideBtn = document.createElement('Button')
+         let showBtn = document.createElement('Button')
+         let table = document.getElementsByTagName('table')[0]
+         hideBtn.innerText = "Hide Table"
+         showBtn.innerText = "Show Table"
+         hideBtn.addEventListener("click", ()=>{table.style.visibility ="hidden"})
+         showBtn.addEventListener("click", ()=>{table.style.visibility ="visible"})
+         header.appendChild(hideBtn)
+         header.appendChild(showBtn)
+      }
+         tableDisplayBtn()
+
        // 44) Write a function to sum every number inside the TD (if the content is numeric)
+
+      //  const sum = function(td, base){
+
+      //     let numbers = []
+      //     for(let i = 0; i < td.length; i++){
+      //       const parsed = parseInt(td[i], base);
+      //          if (isNaN(parsed)) { return 0; }
+      //                return numbers.push(parsed),console.log(numbers);
+      //      }
+      // }
+      //    sum(tableData, 0)
+
+      
+
 
        // 45) Delete the last letter from the title each time the user clicks on it
 
