@@ -226,25 +226,66 @@
 
        // 44) Write a function to sum every number inside the TD (if the content is numeric)
 
-      //  const sum = function(td, base){
+      //  let tableData = document.getElementsByTagName('td') already defined
 
-      //     let numbers = []
-      //     for(let i = 0; i < td.length; i++){
-      //       const parsed = parseInt(td[i], base);
-      //          if (isNaN(parsed)) { return 0; }
-      //                return numbers.push(parsed),console.log(numbers);
-      //      }
-      // }
-      //    sum(tableData, 0)
-
-      
+       const sum = function(td)   {
+            let sum = 0
+          for(let i = 0; i < td.length; i++){
+            const parsed = parseInt(td[i].innerText);
+               if (!isNaN(parsed)) { // ! = is not , isNaN = is not a number, which means if parsed dose include a number value
+                  sum = sum + parsed // 
+               }
+           }
+           return sum
+      }
+        console.log( "This is the sum of all numbers in table data", sum(tableData))
 
 
        // 45) Delete the last letter from the title each time the user clicks on it
 
+      
+         let title = document.getElementsByTagName('h1')[0]
+            title.addEventListener("click", (event) =>{
+              title.innerHTML= event.target.innerText.slice(0,-1)
+            } )
+
        // 46) Change a single TD background color when the user clicks on it
 
+       const changeBgColor = (function(td){
+         
+         for(let i = 0 ; i< td.length; i++){
+
+            const randomColor = function(){
+               let red = Math.floor(Math.random()* 256)
+               let green = Math.floor(Math.random()* 256)
+               let blue = Math.floor(Math.random()* 256)
+               let rgb = "rgb( "+ red + "," + green + "," + blue + ")";
+               return rgb
+         }
+
+         td[i].addEventListener("click", (event)=>{
+            event.target.style.backgroundColor = randomColor()
+         })
+      }
+       }(tableData))
+  
        // 47) Add a button DELETE, on click it should delete a random TD from the page
+
+       const deleteTd = function(td){
+          let header = document.getElementsByTagName('header')[0]
+         let table = document.getElementsByTagName('table')[0]
+         let deleteBtn = document.createElement('button')
+         deleteBtn.innerText = "Delete td"
+         header.appendChild(deleteBtn)
+
+         
+            
+            deleteBtn.addEventListener("click", () =>{
+               let randomData = Math.floor(Math.random() * td.length)
+                  table.removeChild(td[randomData])
+            })
+       }
+       deleteTd(tableData)
 
        // 48) Add a pink border to a cell when the mouse is over it
 
